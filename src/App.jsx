@@ -24,6 +24,8 @@ import LoginMobileResDirect from "./components/LoginMobileResDirect";
 import LoginMobileResDirectSecond from "./components/LoginMobileResDirectSecond";
 import Signup from "./components/Signup";
 import AddressMobileRes from "./components/AddressMobileRes";
+import UserverificationList from "./components/UserverificationList";
+import RequestNewVerification from "./components/RequestNewVerification";
 import { AuthProvider } from "./components/utils/AuthContext";
 import axios from "axios";
 import PrivateRoutes from "./components/utils/PrivateRoutes";
@@ -104,6 +106,11 @@ const App = () => {
           {/* <Route element={<PrivateRoutes />}> */}
           <Route path="/home" element={<Home />} />
           <Route path="/addressNew" element={<AddressMobileRes />} />
+          <Route path="/verificationLists" element={<UserverificationList />} />
+          <Route
+            path="/requestNewVerification"
+            element={<RequestNewVerification />}
+          />
 
           <Route path="/candidates" element={<CandidateDetailsHome />}>
             <Route path="profile" element={<Profile />} />
