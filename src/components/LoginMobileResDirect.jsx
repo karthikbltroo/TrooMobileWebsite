@@ -133,6 +133,7 @@ const LoginMobileResDirect = () => {
 
       if (response.data.success) {
         setMessage(response.data.message);
+        
         // setOtpSent(true);
          // Navigate to the home page ("/") with the mobile number as a query string
         //  setSearchParams({ mobilenumber: data.mobilenumber });
@@ -146,10 +147,12 @@ const LoginMobileResDirect = () => {
         // const queryString = `?mobilenumber=${data.mobilenumber}`;
         // navigate(`/${queryString}`);
         navigate(`/LoginMobileResDirectSecond?mobilenumber=${data.mobilenumber}&fromSignUp=true`);
+        setSnackbarOpen(true);
       } else {
         setMessage(response.data.message || "An error occurred.");
+        setSnackbarOpen(true); // Open the Snackbar to show the message
       }
-      setSnackbarOpen(true); // Open the Snackbar to show the message
+      
     } catch (error) {
       console.log("API Request Error:", error);
       if (error.response && error.response.data) {
@@ -390,6 +393,12 @@ const LoginMobileResDirect = () => {
                         Login
                       </Typography>
                     </Grid>
+                    <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={() => setSnackbarOpen(false)}
+            message={message}
+          />
 
                     <Grid item xs={12}>
                       <Typography style={{ color: "#000" }} variant="body2">

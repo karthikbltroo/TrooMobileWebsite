@@ -162,6 +162,23 @@ c-1 181 0 336 3 344 8 20 623 9 708 -13z"
                       </Stack>
                     </StyledButton>
 
+
+                 
+
+
+                    <StyledButton
+                      component={NavLink}
+                      to="/profileMobres"
+                      activeClassName="active"
+                    >
+                      <Stack direction="row" alignItems="center">
+                        <Typography variant="body2" color={"black"}>
+                        Profile
+                        </Typography>
+                      </Stack>
+                    </StyledButton>
+
+
                     <StyledButton
                       component={NavLink}
                       to="/addressNew"

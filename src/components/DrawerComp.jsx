@@ -33,8 +33,9 @@ const pages = [
   // { text: "Requests", path: "/requests" },
   { text: "New Verification", path: "/requestNewVerification" },
   { text: "Add Address", path: "/addressNew" },
-  // { text: "Profile", path: "/profile" },
+  { text: "Profile", path: "/profileMobres" },
   { text: "LogOut", path: "/" },
+ 
 ];
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -236,7 +237,7 @@ c-1 181 0 336 3 344 8 20 623 9 708 -13z"
                   {page.text === "Requests" ? <Person /> : null}
                   {page.text === "New Verification" ? <Settings /> : null}
                   {page.text === "Profile" ? <AccountBox /> : null}
-                  {page.text === "LogOut " ? <AccountBox /> : null}
+                  {page.text === "LogOut" ? <Storefront /> : null}
                 </ListItemIcon>
                 <ListItemText primary={page.text} />
               </ListItemButton>

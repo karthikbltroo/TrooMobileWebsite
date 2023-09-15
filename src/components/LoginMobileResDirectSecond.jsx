@@ -138,11 +138,14 @@ const LoginMobileResDirectSecond = () => {
         const { token, user_id } = response.data.data;
         setAuth(token, user_id);
         setMessage(response.data.message);
+        
         navigate("/addressNew");
+        setSnackbarOpen(true);
       } else {
         setMessage(response.data.message || "An error occurred.");
+        setSnackbarOpen(true);
       }
-      setSnackbarOpen(true); // Open the Snackbar to show the message
+      // Open the Snackbar to show the message
     } catch (error) {
       console.log("API Request Error:", error);
       if (error.response && error.response.data) {
@@ -213,6 +216,12 @@ const LoginMobileResDirectSecond = () => {
                         Login 
                       </Typography>
                     </Grid>
+                    <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={() => setSnackbarOpen(false)}
+            message={message}
+          />
 
                     <Grid item xs={12}>
                       <Typography style={{ color: "#000" }} variant="body2">
@@ -391,6 +400,12 @@ style={{ width: "40%", height: "50vh", objectFit: "cover" }}
                         Login  
                       </Typography>
                     </Grid>
+                    <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={() => setSnackbarOpen(false)}
+            message={message}
+          />
 
                     <Grid item xs={12}>
                       <Typography style={{ color: "#000" }} variant="body2">

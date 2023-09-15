@@ -28,6 +28,7 @@ import UserverificationList from "./components/UserverificationList";
 import RequestNewVerification from "./components/RequestNewVerification";
 import { AuthProvider } from "./components/utils/AuthContext";
 import axios from "axios";
+import ProfileMobRes from "./components/ProfileMobRes";
 import PrivateRoutes from "./components/utils/PrivateRoutes";
 
 // axios.interceptors.request.use(function (config) {
@@ -107,6 +108,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/addressNew" element={<AddressMobileRes />} />
           <Route path="/verificationLists" element={<UserverificationList />} />
+          <Route path="/profileMobres" element={<ProfileMobRes />} />
           <Route
             path="/requestNewVerification"
             element={<RequestNewVerification />}

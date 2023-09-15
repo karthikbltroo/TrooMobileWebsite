@@ -153,6 +153,7 @@ const Signup = () => {
       if (response.data.success) {
         setMessage(response.data.message);
         setOtpSent(true);
+        setSnackbarOpen(true);
 
         const queryString = `?mobilenumber=${data.mobilenumber}`;
         // navigate(`/${queryString}`);
@@ -161,8 +162,9 @@ const Signup = () => {
         );
       } else {
         setMessage(response.data.message || "An error occurred.");
+        setSnackbarOpen(true);
       }
-      setSnackbarOpen(true); // Open the Snackbar to show the message
+       // Open the Snackbar to show the message
     } catch (error) {
       console.log("API Request Error:", error);
       if (error.response && error.response.data) {

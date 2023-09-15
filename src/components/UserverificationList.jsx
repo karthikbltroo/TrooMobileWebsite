@@ -137,31 +137,33 @@ const UserverificationList = () => {
                     <Box>
                       <Grid container spacing={0.1}>
                         <Grid item xs={12} sm={6}>
-                          <Typography variant="h6" color="secondary">
+                          <Typography variant="subtitle1" color="secondary">
                             {`${request.extra_details.candidate_details.first_name} ${request.extra_details.candidate_details.last_name}`}
                           </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                           <Typography
-                            color="textSecondary"
-                            variant="subtitle1"
+                            // color="textSecondary"
+                            variant="subtitle2"
                             gutterBottom
+                            color="gray"
                           >
-                            Status: {request.status}
+                            Status - {request.status}
+                            
                           </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                          <Typography color="textSecondary" gutterBottom>
-                            Created At: {request.created_at}
+                          <Typography color="textSecondary" gutterBottom fontSize={14} >
+                            Created At - {request.created_at}
                           </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                          <Typography color="textSecondary" gutterBottom>
-                            Updated At: {request.updated_at}
+                          <Typography color="textSecondary" gutterBottom fontSize={14}>
+                            Updated At - {request.updated_at}
                           </Typography>
                         </Grid>
                         <Grid item xs={12} sm={12}>
-                          <Divider style={{ marginTop: "10px" }} />
+                          <Divider sx={{ marginTop: "8px", borderTopWidth: "1px" }} />
                         </Grid>
                       </Grid>
                     </Box>

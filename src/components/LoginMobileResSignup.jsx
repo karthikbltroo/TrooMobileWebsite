@@ -152,8 +152,9 @@ const LoginMobileResSignup = () => {
         navigate("/addressNew");
       } else {
         setMessage(response.data.message || "An error occurred.");
+        setSnackbarOpen(true);
       }
-      setSnackbarOpen(true); // Open the Snackbar to show the message
+      // Open the Snackbar to show the message
     } catch (error) {
       console.log("API Request Error:", error);
       if (error.response && error.response.data) {

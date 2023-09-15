@@ -26,8 +26,8 @@ const AddressMobileRes = () => {
   // const { authData } = useAuth();
   // const { token, user_id } = authData;
 
-   let token = localStorage.getItem('accessToken');
-  console.log("token from AddressMobile",token )
+  let token = localStorage.getItem("accessToken");
+  console.log("token from AddressMobile", token);
 
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
@@ -54,7 +54,7 @@ const AddressMobileRes = () => {
   const [addressLine2, setAddressLine2] = useState("");
   const [landmark, setLandmark] = useState("");
 
-  const[permanentId, setPermanentId] = useState("")
+  const [permanentId, setPermanentId] = useState("");
 
   // Fetch initial data,
   useEffect(() => {
@@ -67,7 +67,10 @@ const AddressMobileRes = () => {
       })
       .then((response) => {
         const { permanent_address } = response.data.data;
-        console.log("the permanent address is sdssd", permanent_address.pincode.name )
+        console.log(
+          "the permanent address is sdssd",
+          permanent_address.pincode.name
+        );
         setSelectedCountry(permanent_address.country);
         setCountryId(permanent_address.country.id);
         setSelectedState(permanent_address.state);
@@ -77,7 +80,7 @@ const AddressMobileRes = () => {
         setSelectedPinCode(permanent_address.pincode);
         setPinCodeId(permanent_address.pincode.id);
 
-        setPermanentId(permanent_address.id)
+        setPermanentId(permanent_address.id);
 
         // Set initial values for address fields
         setAddressLine1(permanent_address.address_line1);
@@ -95,8 +98,7 @@ const AddressMobileRes = () => {
       .get("https://dev.gotroo.in/utils/populate_countries", {
         headers: {
           Accept: "application/json",
-          Authorization:
-          token,
+          Authorization: token,
         },
       })
       .then((response) => {
@@ -117,8 +119,7 @@ const AddressMobileRes = () => {
           {
             headers: {
               Accept: "application/json",
-              Authorization:
-              token
+              Authorization: token,
             },
           }
         )
@@ -164,7 +165,7 @@ const AddressMobileRes = () => {
       })
       .then((response) => {
         setPinCodeOptions(response.data);
-        console.log("checking new pin code", response.data)
+        console.log("checking new pin code", response.data);
       })
       .catch((error) => {
         console.error("Error fetching pin code data:", error);
@@ -197,8 +198,7 @@ const AddressMobileRes = () => {
     setSelectedPinCode(value);
   };
 
-
-  console.log("checking pin code",selectedPinCode)
+  console.log("checking pin code", selectedPinCode);
 
   const onSubmit = (data) => {
     if (!selectedCountry) {
@@ -228,8 +228,7 @@ const AddressMobileRes = () => {
       .post("https://dev.gotroo.in/myprofile/update_address.json", payload, {
         headers: {
           Accept: "application/json",
-          Authorization:
-          token,
+          Authorization: token,
         },
       })
       .then((response) => {
@@ -247,8 +246,6 @@ const AddressMobileRes = () => {
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
   };
-
-  console.log("The id permanennt is", permanentId)
 
   return (
     <Box
@@ -278,11 +275,17 @@ const AddressMobileRes = () => {
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
                     <TextField
-                      {...register("addressLine1")}
-                      label="Address Line 1"
+                      {...register("addressLine1", {
+                        required: "Address Line 1 is required",
+                      })}
+                      label="Address Line 1*"
                       variant="standard"
                       value={addressLine1}
                       onChange={(e) => setAddressLine1(e.target.value)}
+                      error={!!errors.addressLine1}
+                      helperText={
+                        errors.addressLine1 && errors.addressLine1.message
+                      }
                     />
                   </FormControl>
                 </Grid>
@@ -302,11 +305,21 @@ const AddressMobileRes = () => {
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
                     <TextField
-                      {...register("landmark")}
-                      label="Landmark"
+
+
+
+
+                      {...register("landmark", {
+                        required: "Landmark is required",
+                      })}
+                      label="Landmark*"
                       variant="standard"
                       value={landmark}
                       onChange={(e) => setLandmark(e.target.value)}
+                      error={!!errors.landmark}
+                      helperText={
+                        errors.landmark && errors.landmark.message
+                      }
                     />
                   </FormControl>
                 </Grid>
@@ -314,7 +327,9 @@ const AddressMobileRes = () => {
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
                     <Autocomplete
-                      {...register("country")}
+                     {...register("country", {
+                      required: "Country is required",
+                    })}
                       id="country"
                       options={countryOptions}
                       getOptionLabel={(option) => option.name}
@@ -326,7 +341,9 @@ const AddressMobileRes = () => {
                           label="Country"
                           variant="standard"
                           error={!!errors.country}
-                          helperText={errors.country && "Country is required"}
+                      helperText={
+                        errors.country && errors.country.message
+                      }
                         />
                       )}
                     />
