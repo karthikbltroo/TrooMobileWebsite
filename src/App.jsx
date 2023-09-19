@@ -30,6 +30,7 @@ import { AuthProvider } from "./components/utils/AuthContext";
 import axios from "axios";
 import ProfileMobRes from "./components/ProfileMobRes";
 import PrivateRoutes from "./components/utils/PrivateRoutes";
+import Footer from "./components/Footer";
 
 // axios.interceptors.request.use(function (config) {
 //   // Do something before request is sent
@@ -127,9 +128,10 @@ const App = () => {
         <Route path="/help" element={<Help />} /> */}
           {/* </Route> */}
 
-          {/* Handle unknown routes
-          <Route path="*" element={<Navigate to="/" />} /> */}
+          {/* Handle unknown routes */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <Footer />
       </AuthProvider>
     </>
   );

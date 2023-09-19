@@ -80,7 +80,7 @@ const ProfileMobRes = () => {
                     <Typography
                       color="#000"
                       gutterBottom
-                      fontSize={20}
+                      fontSize={18}
                       style={{ marginLeft: "20px" }}
                     >
                       {userData
@@ -110,7 +110,7 @@ const ProfileMobRes = () => {
                     <Typography
                       color="#000"
                       gutterBottom
-                      fontSize={20}
+                      fontSize={18}
                       style={{ marginLeft: "20px" }}
                     >
                       {userData ? userData.primary_phone : ""}
@@ -138,7 +138,7 @@ const ProfileMobRes = () => {
                     <Typography
                       color="#000"
                       gutterBottom
-                      fontSize={20}
+                      fontSize={18}
                       style={{ marginLeft: "10px" }}
                     >
                       {userData ? userData.primary_phone : ""}

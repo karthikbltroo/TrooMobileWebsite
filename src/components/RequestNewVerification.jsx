@@ -238,8 +238,8 @@ const RequestNewVerification = () => {
         setSnackbarOpen(true);
       }
     } catch (error) {
-      console.error("Error updating address:", error);
-      setSnackbarMessage("Error updating address");
+      console.error("Error updating request:", error);
+      setSnackbarMessage("Error updating request");
       setSnackbarOpen(true);
     } finally {
       setLoading(false);

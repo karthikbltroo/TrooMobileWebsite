@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -11,7 +11,7 @@ import {
   Divider,
   Stack,
   Grid,
-  Snackbar
+  Snackbar,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import {
@@ -125,7 +125,6 @@ const LoginMobileResSignup = () => {
     const requestData = {
       user_identifier: mobileNumberFromQuery,
       otp: data.otp,
-     
     };
 
     try {
@@ -148,7 +147,7 @@ const LoginMobileResSignup = () => {
         const { token, user_id } = response.data.data;
         setAuth(token, user_id);
         setMessage(response.data.message || "Loggedin Successfully!");
-        setSnackbarOpen(true); 
+        setSnackbarOpen(true);
         navigate("/addressNew");
       } else {
         setMessage(response.data.message || "An error occurred.");
@@ -185,15 +184,14 @@ const LoginMobileResSignup = () => {
           }}
         >
           <Box sx={{ margin: " 30px auto", width: "95%" }}>
-          
             <Card style={{ borderRadius: "14px" }}>
               <Box style={{ padding: "20px  30px" }}>
-              <Snackbar
-    open={snackbarOpen}
-    autoHideDuration={6000}
-    onClose={() => setSnackbarOpen(false)}
-    message={message}
-  />
+                <Snackbar
+                  open={snackbarOpen}
+                  autoHideDuration={6000}
+                  onClose={() => setSnackbarOpen(false)}
+                  message={message}
+                />
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
@@ -228,7 +226,6 @@ const LoginMobileResSignup = () => {
                         Login
                       </Typography>
                     </Grid>
-                    
 
                     <Grid item xs={12}>
                       <Typography style={{ color: "#000" }} variant="body2">
@@ -263,7 +260,7 @@ const LoginMobileResSignup = () => {
                         defaultValue={isFromSignUp ? mobileNumberFromQuery : ""}
                         disabled={isFromSignUp}
                       /> */}
-                       <TextField
+                      <TextField
                         fullWidth
                         size="large"
                         placeholder="Enter Mobile Number"
@@ -274,7 +271,6 @@ const LoginMobileResSignup = () => {
                       />
                     </Grid>
 
-               
                     {/* {!isFromSignUp && (
                       <>
                         <Grid
@@ -329,7 +325,6 @@ const LoginMobileResSignup = () => {
                       </Button>
                     </Grid>
 
-              
                     {/* {!isFromSignUp && (
                       <Grid item xs={12}>
                         <Typography
@@ -353,11 +348,9 @@ const LoginMobileResSignup = () => {
                     )} */}
                   </Grid>
                 </form>
-               
               </Box>
             </Card>
           </Box>
-          
         </Box>
       </>
     );
@@ -394,14 +387,20 @@ const LoginMobileResSignup = () => {
           }}
         >
           <Box sx={{ margin: " 20px auto", width: "95%", height: "95vh" }}>
-            <Card style={{ borderRadius: "14px" }}>
+            <Card
+              style={{
+                borderRadius: "14px",
+                height: "80vh",
+                marginTop: "-40px",
+              }}
+            >
               <Box style={{ padding: "20px  30px" }}>
-              <Snackbar
-    open={snackbarOpen}
-    autoHideDuration={6000}
-    onClose={() => setSnackbarOpen(false)}
-    message={message}
-  />
+                <Snackbar
+                  open={snackbarOpen}
+                  autoHideDuration={6000}
+                  onClose={() => setSnackbarOpen(false)}
+                  message={message}
+                />
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={3}>
                     <Grid
@@ -414,13 +413,14 @@ const LoginMobileResSignup = () => {
                       xs={12}
                       sm={6}
                     >
-                      <Typography variant="h4" style={{ color: "#DA1F2c" }}>
+                      <Typography
+                        variant="h4"
+                        style={{ color: "#DA1F2c", marginLeft: "300px" }}
+                      >
                         {" "}
                         Login
                       </Typography>
                     </Grid>
-
-                    
 
                     <Grid item xs={12}>
                       <Typography style={{ color: "#000" }} variant="body2">
@@ -433,28 +433,9 @@ const LoginMobileResSignup = () => {
                       </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                      {/* <TextField
-                        fullWidth
-                        size="large"
-                        placeholder="Enter Mobile Number"
-                        variant="standard"
-                        label="Mobile Number"
-                        required
-                        {...register("mobilenumber", {
-                          required: true,
-                          pattern: {
-                            value: /^\d{10}$/,
-                            message: "Invalid phone number",
-                          },
-                        })}
-                        error={!!errors.mobilenumber}
-                        helperText={
-                          errors.mobilenumber && errors.mobilenumber.message
-                        }
-                        defaultValue={isFromSignUp ? mobileNumberFromQuery : ""}
-                         disabled={isFromSignUp}
-                      /> */}
+                    <Grid item xs={12} sm={6} style={{marginTop:'60px'}}>
+                      
+                    
                       <TextField
                         fullWidth
                         size="large"
@@ -465,7 +446,6 @@ const LoginMobileResSignup = () => {
                         value={mobileNumberFromQuery}
                       />
                     </Grid>
-               
 
                     {/* {!isFromSignUp && (
 <>
@@ -488,7 +468,7 @@ const LoginMobileResSignup = () => {
                     </>
                     )} */}
 
-                    <Grid item xs={6}>
+                    <Grid item xs={6} style={{marginTop:'60px'}}>
                       <TextField
                         fullWidth
                         size="large"
@@ -509,13 +489,14 @@ const LoginMobileResSignup = () => {
                     </Grid>
                     <Grid
                       item
-                      xs={12} 
+                      xs={12}
                       style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         alignContent: "center",
-                        margin: "10px auto",
+                        margin: "30px auto",
+                        
                       }}
                     >
                       <Button type="submit" variant="contained" color="primary">
@@ -546,7 +527,6 @@ const LoginMobileResSignup = () => {
         </Box>
       </RightDivision>
     </BorderBox>
-    
   );
 };
 

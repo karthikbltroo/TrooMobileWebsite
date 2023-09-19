@@ -55,6 +55,7 @@ const RightDivision = styled(CardContent)({
   justifyContent: "center",
   alignItems: "center",
   padding: ({ theme }) => theme.spacing(2),
+
 });
 
 const Form = styled("form")({
@@ -224,7 +225,7 @@ const LoginMobileResDirect = () => {
                         style={{ color: "#DA1F2c" }}
                       >
                         {" "}
-                        Login
+                        Login  
                       </Typography>
                     </Grid>
                     <Snackbar
@@ -374,7 +375,7 @@ const LoginMobileResDirect = () => {
           }}
         >
           <Box sx={{ margin: " 20px auto", width: "95%", height: "95vh" }}>
-            <Card style={{ borderRadius: "14px" }}>
+            <Card style={{ borderRadius: "14px", height:'80vh', marginTop:'-40px' }}>
               <Box style={{ padding: "20px  30px" }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={3}>
@@ -388,7 +389,7 @@ const LoginMobileResDirect = () => {
                       xs={12}
                       sm={6}
                     >
-                      <Typography variant="h4" style={{ color: "#DA1F2c" }}>
+                      <Typography variant="h4" style={{ color: "#DA1F2c"  , marginLeft:'300px'}   }>
                         {" "}
                         Login
                       </Typography>
@@ -411,7 +412,7 @@ const LoginMobileResDirect = () => {
                       </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} style={{marginTop:'40px'}}>
                       <TextField
                         fullWidth
                         size="large"
@@ -441,7 +442,7 @@ const LoginMobileResDirect = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         alignContent: "center",
-                        margin: "10px auto",
+                        margin: "50px auto",
                       }}
                     >
                       <Button type="submit" variant="contained" color="primary">
@@ -449,48 +450,7 @@ const LoginMobileResDirect = () => {
                       </Button>
                     </Grid>
 
-                    {/* <Grid item xs={12}>
-                      <Typography variant="body2">
-                        Click "Get OTP" to agree to Troo's Terms of Use and
-                        acknowledge that our Privacy Policy applies to you.
-                      </Typography>
-                    </Grid> */}
-
-                    {/* <Grid item xs={6}>
-                      <TextField
-                        fullWidth
-                        size="large"
-                        placeholder="Enter OTP"
-                        variant="standard"
-                        label="OTP"
-                        required
-                        {...register("otp", {
-                          required: true,
-                          pattern: {
-                            value: /^\d{6}$/,
-                            message: "Invalid OTP",
-                          },
-                        })}
-                        error={!!errors.otp}
-                        helperText={errors.otp && errors.otp.message}
-                      />
-                    </Grid> */}
-
-                    {/* <Grid
-                      item
-                      xs={6}
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        alignContent: "center",
-                        margin: "10px auto",
-                      }}
-                    >
-                      <Button type="submit" variant="contained" color="primary">
-                        Login
-                      </Button>
-                    </Grid> */}
+                  
 
                     <Grid item xs={12}>
                       <Typography

@@ -212,9 +212,9 @@ const AddressMobileRes = () => {
         single_address: 0,
         permanent_address_attributes: {
           id: permanentId,
-          address_line1: addressLine1,
-          address_line2: addressLine2,
-          landmark: landmark,
+          address_line1: "jay indranagar",
+          address_line2:  "jay indranagar",
+          landmark: "jay indranagar",
           admin_country_id: countryId,
           admin_state_id: stateId,
           admin_district_id: selectedDistrict?.id,
@@ -272,64 +272,14 @@ const AddressMobileRes = () => {
           <Box style={{ padding: "20px 30px" }}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <FormControl fullWidth>
-                    <TextField
-                      {...register("addressLine1", {
-                        required: "Address Line 1 is required",
-                      })}
-                      label="Address Line 1*"
-                      variant="standard"
-                      value={addressLine1}
-                      onChange={(e) => setAddressLine1(e.target.value)}
-                      error={!!errors.addressLine1}
-                      helperText={
-                        errors.addressLine1 && errors.addressLine1.message
-                      }
-                    />
-                  </FormControl>
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                  <FormControl fullWidth>
-                    <TextField
-                      {...register("addressLine2")}
-                      label="Address Line 2"
-                      variant="standard"
-                      value={addressLine2}
-                      onChange={(e) => setAddressLine2(e.target.value)}
-                    />
-                  </FormControl>
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                  <FormControl fullWidth>
-                    <TextField
-
-
-
-
-                      {...register("landmark", {
-                        required: "Landmark is required",
-                      })}
-                      label="Landmark*"
-                      variant="standard"
-                      value={landmark}
-                      onChange={(e) => setLandmark(e.target.value)}
-                      error={!!errors.landmark}
-                      helperText={
-                        errors.landmark && errors.landmark.message
-                      }
-                    />
-                  </FormControl>
-                </Grid>
+               
 
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
                     <Autocomplete
-                     {...register("country", {
-                      required: "Country is required",
-                    })}
+                      {...register("country", {
+                        required: "Country is required",
+                      })}
                       id="country"
                       options={countryOptions}
                       getOptionLabel={(option) => option.name}
@@ -341,9 +291,7 @@ const AddressMobileRes = () => {
                           label="Country"
                           variant="standard"
                           error={!!errors.country}
-                      helperText={
-                        errors.country && errors.country.message
-                      }
+                          helperText={errors.country && errors.country.message}
                         />
                       )}
                     />
@@ -353,7 +301,9 @@ const AddressMobileRes = () => {
                 <Grid item xs={12} sm={4}>
                   <FormControl fullWidth>
                     <Autocomplete
-                      {...register("state")}
+                      {...register("state", {
+                        required: "state is required",
+                      })}
                       id="state"
                       options={stateOptions}
                       getOptionLabel={(option) => option.name}
